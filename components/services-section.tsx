@@ -5,29 +5,19 @@ import Image from "next/image"
 export function ServicesSection() {
   const services = [
     {
-      title: "Web design",
-      description: "Lacus adipiscing lectus convallis purus aliquet cursus magnaol dolori montes augue donec cras.",
-      image: "/images/web-design.svg",
-    },
-    {
-      title: "UI/UX design",
-      description: "Arcu venenatis sit nullam pellentesq varius urna non sed aliquam colemir imperdiet amet imperdiet.",
+      title: "UI/UX Designer",
+      description: "Designing clean, user-friendly interfaces and experiences for web and mobile products.",
       image: "/images/ui-ux-design.svg",
     },
     {
-      title: "Product design",
-      description: "Arcu venenatis sit nullam pellentesq varius urna non sed aliquam colemir imperdiet amet imperdiet.",
-      image: "/images/product-design.svg",
-    },
-    {
-      title: "User research",
-      description: "Lacus adipiscing lectus convallis purus aliquet cursus magnaol dolori montes augue donec cras.",
-      image: "/images/user-research.svg",
-    },
-    {
-      title: "Motion graphics",
-      description: "Lacus adipiscing lectus convallis purus aliquet cursus magnaol dolori montes augue donec cras.",
+      title: "Video Editing",
+      description: "Editing engaging videos with smooth transitions, color grading, and motion graphics.",
       image: "/images/motion-graphics.svg",
+    },
+    {
+      title: "AI Automation",
+      description: "Building AI-powered workflows and automations to save time and streamline tasks.",
+      image: "/images/product-design.svg",
     },
   ]
 
