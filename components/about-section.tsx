@@ -27,7 +27,7 @@ export function AboutSection() {
             <div className="flex gap-4 items-start">
               <div className="w-5 h-5 bg-[#6366F1] border-2 border-black rounded-[5px] flex-shrink-0 mt-1"></div>
               <div>
-                <h3 className="text-lg md:text-xl font-bold mb-2">15+ years of experience</h3>
+                <h3 className="text-lg md:text-xl font-bold mb-2">5+ years of experience</h3>
                 <p className="text-gray-600 text-sm md:text-base">
                   Eu pellentesque arcu ornare velit faucibus egestas me gravida sed in purus enim molestie gravida.
                 </p>
@@ -37,7 +37,7 @@ export function AboutSection() {
             <div className="flex gap-4 items-start">
               <div className="w-5 h-5 bg-[#FF6B7A] border-2 border-black rounded-[5px] flex-shrink-0 mt-1"></div>
               <div>
-                <h3 className="text-lg md:text-xl font-bold mb-2">100+ successfull projects</h3>
+                <h3 className="text-lg md:text-xl font-bold mb-2">10+ successfull projects</h3>
                 <p className="text-gray-600 text-sm md:text-base">
                   Eu pellentesque arcu ornare velit faucibus egestas me gravida sed in purus enim molestie gravida.
                 </p>
