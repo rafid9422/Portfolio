@@ -3,7 +3,7 @@
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://v0.link/nikhil-shukla)
 [![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.link/paperfolio)
 
-![Paperfolio Template Preview](https://global.discourse-cdn.com/vercel/original/2X/e/e8a5d554ecf92e4adb4a718138c60ad7e0c7510e.png)
+![Paperfolio Template Preview](public/images/preview.png)
 
 I’ve been experimenting with **V0 - by Vercel**, and I rebuilt the popular **Paperfolio** layout originally created by **Brix Templates**.
 This is a community-made clone — all ownership of the original design stays with @brixtemplatesbrixtemplates.
