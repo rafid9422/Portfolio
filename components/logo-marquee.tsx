@@ -1,22 +1,24 @@
 export function LogoMarquee() {
   const items = [
-    { logo: "/logos/application.svg", alt: "application" },
-    { logo: "/logos/business.svg", alt: "business" },
-    { logo: "/logos/company.svg", alt: "company" },
-    { logo: "/logos/startup.svg", alt: "startup" },
-    { logo: "/logos/venture.svg", alt: "venture" },
-    { logo: "/logos/agency.svg", alt: "agency" },
+    { logo: "/logos/application.svg", alt: "Application" },
+    { logo: "/logos/business.svg", alt: "Business" },
+    { logo: "/logos/company.svg", alt: "Company" },
+    { logo: "/logos/startup.svg", alt: "Startup" },
+    { logo: "/logos/venture.svg", alt: "Venture" },
+    { logo: "/logos/agency.svg", alt: "Agency" },
   ]
 
   return (
-    <div className="overflow-hidden">
-      <div className="relative overflow-hidden bg-black py-16 -rotate-[5deg] mt-32 mb-16 min-w-[120vw] -mx-[10vw] left-0">
-        <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
+    <section aria-label="Brands I've worked with" className="bg-ink py-10">
+      <p className="sr-only">{items.map((i) => i.alt).join(", ")}</p>
+      <div className="overflow-hidden" aria-hidden="true">
+        <div className="flex w-max animate-marquee items-center gap-16 pr-16">
           {[...items, ...items, ...items, ...items].map((item, index) => (
-            <img key={index} src={item.logo || "/placeholder.svg"} alt={item.alt} className="h-12 w-auto" />
+            // eslint-disable-next-line @next/next/no-img-element
+            <img key={index} src={item.logo} alt="" className="h-8 w-auto opacity-70" />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }

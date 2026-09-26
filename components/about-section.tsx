@@ -1,53 +1,53 @@
-import { User } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function AboutSection() {
+  const stats = [
+    { value: "5+", label: "Years of experience" },
+    { value: "10+", label: "Successful projects" },
+  ]
+
   return (
-    <section className="container mx-auto px-4 py-16 md:py-32">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div className="flex justify-center">
-          <div className="relative w-full max-w-lg aspect-square border-[4px] border-black rounded-full overflow-hidden bg-[#FF6B6B] shadow-[-8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <Image src="/images/about-me.svg" alt="About me illustration" fill className="object-cover" />
+    <section id="about" className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
+      <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
+        <div className="relative mx-auto w-full max-w-md">
+          <div aria-hidden="true" className="absolute inset-0 translate-x-4 translate-y-4 rounded-md bg-brand" />
+          <div className="relative aspect-square overflow-hidden rounded-md bg-surface">
+            <Image src="/images/about-me.svg" alt="Illustration of a designer at work" fill className="object-cover" />
           </div>
         </div>
 
-        <div className="space-y-6 md:space-y-8">
-          <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Who's behind all this <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">great work?</span>
-            </h2>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-              Eu pellentesque arcu ornare velit faucibus egestas gravida sed in purus enim molestie gravida imperdiet
-              integer.
-            </p>
-          </div>
+        <div>
+          <p className="eyebrow mb-4">About me</p>
+          <h2 className="text-[30px] leading-[38px] font-light md:text-section">
+            Who&apos;s behind all this <span className="marker font-medium">work?</span>
+          </h2>
+          <p className="mt-6 text-body text-muted">
+            I&apos;m a designer based in Dhaka who cares about the small details that make software feel effortless. I
+            start with research, sketch in the open, and keep iterating until the product is simple to use and easy to
+            build.
+          </p>
 
-          <div className="space-y-6">
-            <div className="flex gap-4 items-start">
-              <div className="w-5 h-5 bg-[#6366F1] border-2 border-black rounded-[5px] flex-shrink-0 mt-1"></div>
-              <div>
-                <h3 className="text-lg md:text-xl font-bold mb-2">5+ years of experience</h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  Eu pellentesque arcu ornare velit faucibus egestas me gravida sed in purus enim molestie gravida.
-                </p>
+          <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-surface pt-8">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <dt className="text-meta text-muted">{stat.label}</dt>
+                <dd className="mt-1 text-[48px] leading-none font-light">
+                  {stat.value}
+                  <span className="text-brand" aria-hidden="true">
+                    .
+                  </span>
+                </dd>
               </div>
-            </div>
+            ))}
+          </dl>
 
-            <div className="flex gap-4 items-start">
-              <div className="w-5 h-5 bg-[#FF6B7A] border-2 border-black rounded-[5px] flex-shrink-0 mt-1"></div>
-              <div>
-                <h3 className="text-lg md:text-xl font-bold mb-2">10+ successfull projects</h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  Eu pellentesque arcu ornare velit faucibus egestas me gravida sed in purus enim molestie gravida.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <Button className="bg-[#0B0B0B] text-white hover:bg-black/90 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px]">
-            <User className="w-5 h-5" />
-            More about me
+          <Button asChild variant="outline" className="mt-10">
+            <a href="#experience">
+              More about me
+              <ArrowRight />
+            </a>
           </Button>
         </div>
       </div>

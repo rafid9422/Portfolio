@@ -1,27 +1,20 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { Jost } from "next/font/google"
 
 import "./globals.css"
 
-import { Onest, Geist_Mono as V0_Font_Geist_Mono } from "next/font/google"
-
-// Initialize fonts
-const _geistMono = V0_Font_Geist_Mono({
+const jost = Jost({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-})
-
-// Initialize Onest font with weights 500 and 700
-const onest = Onest({
-  subsets: ["latin"],
-  weight: ["500", "700"],
-  variable: "--font-onest",
+  weight: ["300", "400", "500", "900"],
+  variable: "--font-jost",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: "Paperfolio - Portfolio Landing Page",
-  description: "A playful portfolio landing page",
-  generator: "v0.app",
+  title: "Rafid Rahman — UI/UX designer",
+  description:
+    "Rafid Rahman is a UI/UX designer from Dhaka, Bangladesh, also working in video editing and AI automation.",
 }
 
 export default function RootLayout({
@@ -30,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>{children}</body>
+    <html lang="en" className={jost.variable}>
+      <body className="font-sans antialiased overflow-x-hidden">{children}</body>
     </html>
   )
 }

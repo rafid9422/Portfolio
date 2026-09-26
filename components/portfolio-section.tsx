@@ -6,97 +6,66 @@ export function PortfolioSection() {
     {
       title: "Studio user research and analysis",
       description:
-        "In ultricies viverra sed at hendrerit drogon nunc scelerisque nisl pellentesque et dignissim at aenean tempor adipiscing eget mi diam at tempus.",
-      tag: "UI/UX Design",
+        "Mapping how a creative studio plans and delivers work, then turning interviews and usability sessions into a clear set of product priorities.",
+      tag: "UI/UX design",
       logo: "/images/studio-logo.svg",
-      bgColor: "bg-[#6366F1]",
       illustration: "/images/studio-workspace.svg",
     },
     {
       title: "Venture Workspace web app redesign",
       description:
-        "In ultricies viverra sed at hendrerit drogon nunc scelerisque nisl pellentesque et dignissim at aenean tempor adipiscing eget mi diam at tempus.",
-      tag: "UI/UX Design",
+        "A ground-up redesign of a workspace dashboard — new information architecture, a lighter visual language and a reusable component library.",
+      tag: "UI/UX design",
       logo: "/images/venture-logo.svg",
-      bgColor: "bg-[#2F81F7]",
       illustration: "/images/venture-workspace.svg",
     },
   ]
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Take a look at my <br />
-            <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">design portfolio</span>
-          </h2>
-        </div>
+    <section id="portfolio" className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
+      <div className="mb-12 md:mb-16">
+        <p className="eyebrow mb-4">Selected work</p>
+        <h2 className="text-[30px] leading-[38px] font-light md:text-section">
+          Take a look at my <span className="marker font-medium">design portfolio</span>
+        </h2>
+      </div>
 
-        <div className="space-y-8 mb-12">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group grid md:grid-cols-2 bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
-            >
-              <div className="p-6 md:p-12 flex flex-col justify-center bg-white">
-                <div className="flex items-center gap-3 mb-6">
-                  <Image
-                    src={project.logo || "/placeholder.svg"}
-                    alt={`${project.title} logo`}
-                    width={120}
-                    height={32}
-                    className="h-6 md:h-8 w-auto"
-                  />
-                </div>
+      <ul className="space-y-16 md:space-y-24">
+        {projects.map((project, index) => (
+          <li key={project.title}>
+            <article className="group grid items-center gap-8 md:grid-cols-2 md:gap-16">
+              <a
+                href="#"
+                tabIndex={-1}
+                aria-hidden="true"
+                className={`relative block aspect-[4/3] overflow-hidden rounded-md bg-surface ${
+                  index % 2 === 1 ? "md:order-2" : ""
+                }`}
+              >
+                <Image
+                  src={project.illustration}
+                  alt=""
+                  fill
+                  className="object-cover transition-transform duration-300 ease-base group-hover:scale-105"
+                />
+              </a>
 
-                <span className="inline-block bg-black text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 w-fit">
-                  {project.tag}
-                </span>
-
-                <h3 className="text-xl md:text-[28px] font-bold mb-4 leading-tight md:leading-[40px] text-[#0B0B0B]">
+              <div>
+                <Image src={project.logo} alt="" width={120} height={32} className="block h-7 w-auto" />
+                <span className="mt-6 inline-block rounded-lg bg-surface px-3 py-1 text-meta">{project.tag}</span>
+                <h3 className="mt-4 text-[26px] leading-[34px] font-light md:text-[30px] md:leading-[38px]">
                   {project.title}
                 </h3>
-
-                <p className="text-base md:text-[18px] text-[#393939] mb-8 leading-relaxed md:leading-[30px] font-medium">
-                  {project.description}
-                </p>
-
-                <a
-                  href="#"
-                  className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base"
-                >
-                  View case study
-                  <ArrowRight className="w-4 h-4" />
+                <p className="mt-4 text-body text-muted">{project.description}</p>
+                <a href="#" className="mt-8 inline-flex items-center gap-2 font-medium">
+                  <span className="text-link">View case study</span>
+                  <ArrowRight className="size-4 transition-transform duration-150 group-hover:translate-x-1" />
                 </a>
               </div>
-
-              <div className={`${project.bgColor} relative overflow-hidden min-h-[250px] md:min-h-[500px]`}>
-                <Image
-                  src={project.illustration || "/placeholder.svg"}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex justify-center">
-          <button className="bg-black text-white px-6 md:px-8 py-4 md:py-5 rounded-[12px] font-semibold hover:bg-gray-900 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto text-sm md:text-base">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-            Browse all portfolio
-          </button>
-        </div>
-      </div>
+            </article>
+          </li>
+        ))}
+      </ul>
     </section>
   )
 }

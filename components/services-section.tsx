@@ -1,83 +1,81 @@
-import { Mail } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export function ServicesSection() {
   const services = [
     {
-      title: "UI/UX Designer",
+      title: "UI/UX design",
       description: "Designing clean, user-friendly interfaces and experiences for web and mobile products.",
       image: "/images/ui-ux-design.svg",
     },
     {
-      title: "Video Editing",
+      title: "Video editing",
       description: "Editing engaging videos with smooth transitions, color grading, and motion graphics.",
       image: "/images/motion-graphics.svg",
     },
     {
-      title: "AI Automation",
+      title: "AI automation",
       description: "Building AI-powered workflows and automations to save time and streamline tasks.",
       image: "/images/product-design.svg",
     },
   ]
 
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl md:text-[52px] md:leading-[60px] font-bold mb-4">
-              My broad <span className="bg-[#FF4A60] text-white px-3 py-1 inline-block">set of services</span>
+    <section id="services" className="bg-surface py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <div className="mb-12 grid gap-6 md:mb-16 md:grid-cols-2 md:items-end">
+          <div>
+            <p className="eyebrow mb-4">What I do</p>
+            <h2 className="text-[30px] leading-[38px] font-light md:text-section">
+              A focused <span className="font-medium">set of services</span>
             </h2>
-            <p className="text-[#393939] text-base md:text-lg font-medium leading-relaxed md:leading-[30px] max-w-2xl mx-auto">
-              Lacus, adipiscing lectus convallis purus aliquet cursus magnaol montes augue donec cras turpis ultrices
-              nulla sed doler.
-            </p>
           </div>
+          <p className="max-w-md text-body text-muted md:justify-self-end">
+            Three disciplines that work well together: a product that looks right, a story that moves, and the systems
+            that keep it running.
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 min-h-[480px] flex flex-col group"
-              >
-                <div className="mb-6 -mx-[3px] -mt-[3px] overflow-hidden rounded-t-[29px]">
-                  <Image
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.title}
-                    width={382}
-                    height={328}
-                    className="w-full h-auto rounded-t-[29px] group-hover:scale-110 transition-transform duration-500 ease-out"
-                  />
-                </div>
-                <div className="px-8 pb-8 flex-1 flex flex-col">
-                  <h3 className="text-[28px] leading-[40px] font-bold mb-3 text-[#0B0B0B]">{service.title}</h3>
-                  <p className="text-[18px] leading-[30px] font-medium text-[#393939]">{service.description}</p>
-                </div>
-              </div>
-            ))}
-
-            <div className="bg-[#FFC224] border-[3px] border-black rounded-[32px] p-8 md:p-12 flex flex-col items-center justify-center text-center hover:translate-y-[-4px] transition-transform min-h-[480px] relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-              <div className="mb-8">
+        <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {services.map((service, index) => (
+            <li
+              key={service.title}
+              className="group flex flex-col overflow-hidden rounded-md bg-paper transition-shadow duration-300 hover:shadow-sm"
+            >
+              <div className="overflow-hidden">
                 <Image
-                  src="/images/get-in-touch.svg"
-                  alt="Get in touch"
-                  width={92}
-                  height={92}
-                  className="w-[92px] h-[92px]"
+                  src={service.image}
+                  alt=""
+                  width={382}
+                  height={328}
+                  className="h-auto w-full transition-transform duration-300 ease-base group-hover:scale-105"
                 />
               </div>
-              <h3 className="text-[28px] leading-[40px] font-bold mb-4 text-[#0B0B0B]">Get in touch</h3>
-              <p className="text-[18px] leading-[30px] font-medium text-[#393939] mb-8">
-                Looking for another service? Get in touch with me, there is a high chance that I will be able to help!
+              <div className="flex flex-1 flex-col p-6">
+                <span className="text-meta text-muted">0{index + 1}</span>
+                <h3 className="mt-2 text-title font-medium">{service.title}</h3>
+                <p className="mt-3 text-body text-muted">{service.description}</p>
+              </div>
+            </li>
+          ))}
+
+          <li className="flex flex-col justify-between rounded-md bg-ink p-6 text-paper on-dark">
+            <div>
+              <span className="inline-block size-3 rounded-full bg-accent" aria-hidden="true" />
+              <h3 className="mt-6 text-title font-medium">Need something else?</h3>
+              <p className="mt-3 text-body text-paper/70">
+                Looking for another service? Get in touch — there&apos;s a good chance I can help.
               </p>
-              <Button className="bg-black text-white hover:bg-black/90 rounded-[16px] px-12 py-6 font-medium text-[18px] w-full max-w-[340px] h-[64px]">
-                <Mail className="w-5 h-5 mr-2" />
-                Get in touch
-              </Button>
             </div>
-          </div>
-        </div>
+            <Button asChild className="mt-8 w-full">
+              <a href="#contact">
+                Get in touch
+                <ArrowUpRight />
+              </a>
+            </Button>
+          </li>
+        </ol>
       </div>
     </section>
   )

@@ -1,37 +1,100 @@
-import { Mail, ChevronDown } from "lucide-react"
+"use client"
+
+import { useEffect, useState } from "react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+
+const links = [
+  { href: "#services", label: "Services" },
+  { href: "#about", label: "About" },
+  { href: "#portfolio", label: "Portfolio" },
+  { href: "#experience", label: "Experience" },
+  { href: "#articles", label: "Articles" },
+]
 
 export function Navigation() {
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false)
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [open])
+
   return (
-    <div className="container mx-auto px-4 pt-8 pb-4">
-      <nav className="flex items-center justify-between bg-white border-4 border-black rounded-xl px-5 py-3 max-w-2xl mx-auto shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-        <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0">
-          <div className="w-6 h-6 bg-white rounded-full"></div>
-        </div>
+    <header
+      className={cn(
+        "sticky top-0 z-50 bg-paper/95 backdrop-blur transition-[border-color] duration-300 border-b",
+        scrolled || open ? "border-surface" : "border-transparent",
+      )}
+    >
+      <nav aria-label="Primary" className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 md:px-6">
+        <a href="#home" className="text-title font-medium tracking-tight">
+          Rafid<span className="text-brand">.</span>
+        </a>
 
-        <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
-          <a href="#home" className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity">
-            Home
-          </a>
-          <a href="#about" className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity">
-            About
-          </a>
-          <a href="#portfolio" className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity">
-            Portfolio
-          </a>
-          <button className="flex items-center gap-1 text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity">
-            Pages
-            <ChevronDown className="w-4 h-4" />
-          </button>
-          <a href="#cart" className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity">
-            Cart(0)
-          </a>
-        </div>
+        <ul className="hidden items-center gap-10 md:flex">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} className="text-link text-body text-muted hover:text-ink">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-        <Button className="bg-black text-white hover:bg-black/90 rounded-sm px-5 h-12 min-w-[48px] flex-shrink-0">
-          <Mail className="w-10 h-10" strokeWidth={2.5} />
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button asChild size="sm" variant="dark" className="hidden sm:inline-flex">
+            <a href="#contact">Let&apos;s talk</a>
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </Button>
+        </div>
       </nav>
-    </div>
+
+      <div
+        id="mobile-menu"
+        hidden={!open}
+        className="border-t border-surface bg-paper px-4 pb-6 md:hidden"
+      >
+        <ul className="flex flex-col">
+          {links.map((link) => (
+            <li key={link.href} className="border-b border-surface">
+              <a
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="block py-4 text-title font-light hover:text-muted"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <Button asChild variant="dark" className="mt-6 w-full">
+          <a href="#contact" onClick={() => setOpen(false)}>
+            Let&apos;s talk
+          </a>
+        </Button>
+      </div>
+    </header>
   )
 }
