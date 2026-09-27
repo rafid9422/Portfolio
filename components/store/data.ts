@@ -1,4 +1,4 @@
-export const STORE_NAME = "BLUTHREAD"
+export const STORE_NAME = "LYRA"
 
 export type Garment = "tshirt" | "polo" | "shirt" | "jeans" | "panjabi" | "jacket" | "trouser"
 

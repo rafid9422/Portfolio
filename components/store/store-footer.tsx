@@ -56,7 +56,7 @@ export function StoreFooter() {
           <p className="mb-4 text-sm font-bold uppercase tracking-widest text-white">Contact</p>
           <ul className="space-y-2 text-sm">
             <li>Hotline: +880 1XXX-XXXXXX</li>
-            <li>Email: support@example.com</li>
+            <li>Email: hello@yourdomain.com</li>
             <li>Sat – Thu, 10am – 8pm</li>
           </ul>
           <p className="mt-6 text-xs uppercase tracking-widest text-neutral-400">We accept</p>
